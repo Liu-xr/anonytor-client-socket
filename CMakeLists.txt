@@ -12,7 +12,7 @@ add_executable(
         controller/definition/Notice.h
         controller/connection/Connection.h config.h
         controller/definition/Handshake.h controller/definition/Handshake.cpp
-)
+        controller/definition/Slice.cpp controller/definition/Slice.h)
 include_directories(
         include
 controller)

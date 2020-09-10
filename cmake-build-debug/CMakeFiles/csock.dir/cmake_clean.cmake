@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/csock.dir/controller/connection/ControlConnection.cpp.obj"
   "CMakeFiles/csock.dir/controller/connection/TransferConnection.cpp.obj"
   "CMakeFiles/csock.dir/controller/definition/Handshake.cpp.obj"
+  "CMakeFiles/csock.dir/controller/definition/Slice.cpp.obj"
   "CMakeFiles/csock.dir/main.cpp.obj"
   "csock.exe"
   "csock.exe.manifest"

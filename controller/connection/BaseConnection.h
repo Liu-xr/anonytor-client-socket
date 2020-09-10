@@ -8,32 +8,41 @@
 #include <winsock.h>
 #include <string>
 
-#define Control true
-#define Transfer false
+#define Control 0
+#define Transfer 1
+const int DefaultBufferLength = 256;
 using namespace std;
 namespace Connection {
     class BaseConnection {
     protected:
         SOCKADDR_IN ServerAddr;
         SOCKET Socket;
-        char ReadBuffer[128]{};
+        char *Buffer;
+        int BufferLength = 0;
+        int BufferCapacity = DefaultBufferLength;
         string HostID;
         string Key;
-        bool Type;
+        int Type;
 
         //methods
-        int basicSend(const char []);
+        int basicSend(const char [], int dataLen);
 
         int basicRecv();
 
-    public:
-        BaseConnection(const char *hostAddr, int port, const string &hostID, string key, bool type);
-
-        int Connect();
+        int readAndAppendToBuffer();
 
         int OK();
+
         int Reset();
-        static char *padData(const char *);
+
+        static void padData(const char *, char *dest);
+
+        static int calLenNeeded(const char *);
+
+    public:
+        BaseConnection(const char *hostAddr, int port, const string &hostID, string key, int type);
+
+        int Connect();
 
 
     };

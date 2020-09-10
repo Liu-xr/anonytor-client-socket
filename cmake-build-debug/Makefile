@@ -250,6 +250,33 @@ controller/definition/Handshake.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/definition/Handshake.cpp.s
 .PHONY : controller/definition/Handshake.cpp.s
 
+controller/definition/Slice.obj: controller/definition/Slice.cpp.obj
+
+.PHONY : controller/definition/Slice.obj
+
+# target to build an object file
+controller/definition/Slice.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/definition/Slice.cpp.obj
+.PHONY : controller/definition/Slice.cpp.obj
+
+controller/definition/Slice.i: controller/definition/Slice.cpp.i
+
+.PHONY : controller/definition/Slice.i
+
+# target to preprocess a source file
+controller/definition/Slice.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/definition/Slice.cpp.i
+.PHONY : controller/definition/Slice.cpp.i
+
+controller/definition/Slice.s: controller/definition/Slice.cpp.s
+
+.PHONY : controller/definition/Slice.s
+
+# target to generate assembly for a file
+controller/definition/Slice.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/definition/Slice.cpp.s
+.PHONY : controller/definition/Slice.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -298,6 +325,9 @@ help:
 	@echo ... controller/definition/Handshake.obj
 	@echo ... controller/definition/Handshake.i
 	@echo ... controller/definition/Handshake.s
+	@echo ... controller/definition/Slice.obj
+	@echo ... controller/definition/Slice.i
+	@echo ... controller/definition/Slice.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

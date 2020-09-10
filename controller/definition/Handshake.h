@@ -12,7 +12,7 @@ class Handshake {
 public:
    string HostID;
    string Key;
-   bool Type;
+   int Type;
    string TaskID;
 
    Handshake(string hostID, string key, bool type, string taskId);

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/16977/Desktop/src/csock/controller/connection/ControlConnection.cpp" "C:/Users/16977/Desktop/src/csock/cmake-build-debug/CMakeFiles/csock.dir/controller/connection/ControlConnection.cpp.obj"
   "C:/Users/16977/Desktop/src/csock/controller/connection/TransferConnection.cpp" "C:/Users/16977/Desktop/src/csock/cmake-build-debug/CMakeFiles/csock.dir/controller/connection/TransferConnection.cpp.obj"
   "C:/Users/16977/Desktop/src/csock/controller/definition/Handshake.cpp" "C:/Users/16977/Desktop/src/csock/cmake-build-debug/CMakeFiles/csock.dir/controller/definition/Handshake.cpp.obj"
+  "C:/Users/16977/Desktop/src/csock/controller/definition/Slice.cpp" "C:/Users/16977/Desktop/src/csock/cmake-build-debug/CMakeFiles/csock.dir/controller/definition/Slice.cpp.obj"
   "C:/Users/16977/Desktop/src/csock/main.cpp" "C:/Users/16977/Desktop/src/csock/cmake-build-debug/CMakeFiles/csock.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
