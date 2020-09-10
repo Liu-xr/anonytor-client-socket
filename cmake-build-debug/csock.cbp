@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/16977/Desktop/src/csock/cmake-build-debug/Test.h">
+			<Option target="csock"/>
+		</Unit>
 		<Unit filename="C:/Users/16977/Desktop/src/csock/config.h">
 			<Option target="csock"/>
 		</Unit>
@@ -117,10 +120,28 @@
 		<Unit filename="C:/Users/16977/Desktop/src/csock/controller/definition/Notice.h">
 			<Option target="csock"/>
 		</Unit>
+		<Unit filename="C:/Users/16977/Desktop/src/csock/controller/definition/Request.cpp">
+			<Option target="csock"/>
+		</Unit>
+		<Unit filename="C:/Users/16977/Desktop/src/csock/controller/definition/Request.h">
+			<Option target="csock"/>
+		</Unit>
+		<Unit filename="C:/Users/16977/Desktop/src/csock/controller/definition/Response.cpp">
+			<Option target="csock"/>
+		</Unit>
+		<Unit filename="C:/Users/16977/Desktop/src/csock/controller/definition/Response.h">
+			<Option target="csock"/>
+		</Unit>
 		<Unit filename="C:/Users/16977/Desktop/src/csock/controller/definition/Slice.cpp">
 			<Option target="csock"/>
 		</Unit>
 		<Unit filename="C:/Users/16977/Desktop/src/csock/controller/definition/Slice.h">
+			<Option target="csock"/>
+		</Unit>
+		<Unit filename="C:/Users/16977/Desktop/src/csock/controller/task/BaseTask.cpp">
+			<Option target="csock"/>
+		</Unit>
+		<Unit filename="C:/Users/16977/Desktop/src/csock/controller/task/BaseTask.h">
 			<Option target="csock"/>
 		</Unit>
 		<Unit filename="C:/Users/16977/Desktop/src/csock/main.cpp">

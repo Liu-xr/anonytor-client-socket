@@ -46,17 +46,37 @@ CMakeFiles/csock.dir/controller/connection/BaseConnection.cpp.obj: ../controller
 CMakeFiles/csock.dir/controller/connection/BaseConnection.cpp.obj: ../controller/connection/BaseConnection.h
 CMakeFiles/csock.dir/controller/connection/BaseConnection.cpp.obj: ../controller/definition/Handshake.h
 CMakeFiles/csock.dir/controller/connection/BaseConnection.cpp.obj: ../controller/definition/Notice.h
+CMakeFiles/csock.dir/controller/connection/BaseConnection.cpp.obj: ../controller/definition/Request.h
+CMakeFiles/csock.dir/controller/connection/BaseConnection.cpp.obj: ../controller/definition/Slice.h
 
+CMakeFiles/csock.dir/controller/connection/ControlConnection.cpp.obj: ../include/nlohmann/json.hpp
 CMakeFiles/csock.dir/controller/connection/ControlConnection.cpp.obj: ../controller/connection/BaseConnection.h
 CMakeFiles/csock.dir/controller/connection/ControlConnection.cpp.obj: ../controller/connection/ControlConnection.cpp
 CMakeFiles/csock.dir/controller/connection/ControlConnection.cpp.obj: ../controller/connection/ControlConnection.h
+CMakeFiles/csock.dir/controller/connection/ControlConnection.cpp.obj: ../controller/definition/Request.h
+CMakeFiles/csock.dir/controller/connection/ControlConnection.cpp.obj: ../controller/definition/Response.h
+CMakeFiles/csock.dir/controller/connection/ControlConnection.cpp.obj: ../controller/definition/Slice.h
 
 CMakeFiles/csock.dir/controller/connection/TransferConnection.cpp.obj: ../controller/connection/BaseConnection.h
 CMakeFiles/csock.dir/controller/connection/TransferConnection.cpp.obj: ../controller/connection/TransferConnection.cpp
 CMakeFiles/csock.dir/controller/connection/TransferConnection.cpp.obj: ../controller/connection/TransferConnection.h
+CMakeFiles/csock.dir/controller/connection/TransferConnection.cpp.obj: ../controller/definition/Request.h
+CMakeFiles/csock.dir/controller/connection/TransferConnection.cpp.obj: ../controller/definition/Slice.h
 
 CMakeFiles/csock.dir/controller/definition/Handshake.cpp.obj: ../controller/definition/Handshake.cpp
 CMakeFiles/csock.dir/controller/definition/Handshake.cpp.obj: ../controller/definition/Handshake.h
+
+CMakeFiles/csock.dir/controller/definition/Request.cpp.obj: ../controller/definition/Request.cpp
+CMakeFiles/csock.dir/controller/definition/Request.cpp.obj: ../controller/definition/Request.h
+
+CMakeFiles/csock.dir/controller/definition/Response.cpp.obj: ../controller/definition/Response.cpp
+CMakeFiles/csock.dir/controller/definition/Response.cpp.obj: ../controller/definition/Response.h
+
+CMakeFiles/csock.dir/controller/definition/Slice.cpp.obj: ../controller/definition/Slice.cpp
+CMakeFiles/csock.dir/controller/definition/Slice.cpp.obj: ../controller/definition/Slice.h
+
+CMakeFiles/csock.dir/controller/task/BaseTask.cpp.obj: ../controller/task/BaseTask.cpp
+CMakeFiles/csock.dir/controller/task/BaseTask.cpp.obj: ../controller/task/BaseTask.h
 
 CMakeFiles/csock.dir/main.cpp.obj: ../include/spdlog/cfg/log_levels.h
 CMakeFiles/csock.dir/main.cpp.obj: ../include/spdlog/common-inl.h
@@ -103,5 +123,8 @@ CMakeFiles/csock.dir/main.cpp.obj: ../controller/connection/BaseConnection.h
 CMakeFiles/csock.dir/main.cpp.obj: ../controller/connection/ControlConnection.h
 CMakeFiles/csock.dir/main.cpp.obj: ../controller/definition/Handshake.h
 CMakeFiles/csock.dir/main.cpp.obj: ../controller/definition/Notice.h
+CMakeFiles/csock.dir/main.cpp.obj: ../controller/definition/Request.h
+CMakeFiles/csock.dir/main.cpp.obj: ../controller/definition/Response.h
+CMakeFiles/csock.dir/main.cpp.obj: ../controller/definition/Slice.h
 CMakeFiles/csock.dir/main.cpp.obj: ../main.cpp
 

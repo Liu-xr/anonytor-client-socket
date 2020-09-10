@@ -160,6 +160,48 @@ CMakeFiles/csock.dir/controller/definition/Slice.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/csock.dir/controller/definition/Slice.cpp.s"
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\16977\Desktop\src\csock\controller\definition\Slice.cpp -o CMakeFiles\csock.dir\controller\definition\Slice.cpp.s
 
+CMakeFiles/csock.dir/controller/definition/Request.cpp.obj: CMakeFiles/csock.dir/flags.make
+CMakeFiles/csock.dir/controller/definition/Request.cpp.obj: CMakeFiles/csock.dir/includes_CXX.rsp
+CMakeFiles/csock.dir/controller/definition/Request.cpp.obj: ../controller/definition/Request.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\16977\Desktop\src\csock\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/csock.dir/controller/definition/Request.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\csock.dir\controller\definition\Request.cpp.obj -c C:\Users\16977\Desktop\src\csock\controller\definition\Request.cpp
+
+CMakeFiles/csock.dir/controller/definition/Request.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/csock.dir/controller/definition/Request.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\16977\Desktop\src\csock\controller\definition\Request.cpp > CMakeFiles\csock.dir\controller\definition\Request.cpp.i
+
+CMakeFiles/csock.dir/controller/definition/Request.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/csock.dir/controller/definition/Request.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\16977\Desktop\src\csock\controller\definition\Request.cpp -o CMakeFiles\csock.dir\controller\definition\Request.cpp.s
+
+CMakeFiles/csock.dir/controller/definition/Response.cpp.obj: CMakeFiles/csock.dir/flags.make
+CMakeFiles/csock.dir/controller/definition/Response.cpp.obj: CMakeFiles/csock.dir/includes_CXX.rsp
+CMakeFiles/csock.dir/controller/definition/Response.cpp.obj: ../controller/definition/Response.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\16977\Desktop\src\csock\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/csock.dir/controller/definition/Response.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\csock.dir\controller\definition\Response.cpp.obj -c C:\Users\16977\Desktop\src\csock\controller\definition\Response.cpp
+
+CMakeFiles/csock.dir/controller/definition/Response.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/csock.dir/controller/definition/Response.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\16977\Desktop\src\csock\controller\definition\Response.cpp > CMakeFiles\csock.dir\controller\definition\Response.cpp.i
+
+CMakeFiles/csock.dir/controller/definition/Response.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/csock.dir/controller/definition/Response.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\16977\Desktop\src\csock\controller\definition\Response.cpp -o CMakeFiles\csock.dir\controller\definition\Response.cpp.s
+
+CMakeFiles/csock.dir/controller/task/BaseTask.cpp.obj: CMakeFiles/csock.dir/flags.make
+CMakeFiles/csock.dir/controller/task/BaseTask.cpp.obj: CMakeFiles/csock.dir/includes_CXX.rsp
+CMakeFiles/csock.dir/controller/task/BaseTask.cpp.obj: ../controller/task/BaseTask.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\16977\Desktop\src\csock\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/csock.dir/controller/task/BaseTask.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\csock.dir\controller\task\BaseTask.cpp.obj -c C:\Users\16977\Desktop\src\csock\controller\task\BaseTask.cpp
+
+CMakeFiles/csock.dir/controller/task/BaseTask.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/csock.dir/controller/task/BaseTask.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\16977\Desktop\src\csock\controller\task\BaseTask.cpp > CMakeFiles\csock.dir\controller\task\BaseTask.cpp.i
+
+CMakeFiles/csock.dir/controller/task/BaseTask.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/csock.dir/controller/task/BaseTask.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\16977\Desktop\src\csock\controller\task\BaseTask.cpp -o CMakeFiles\csock.dir\controller\task\BaseTask.cpp.s
+
 # Object files for target csock
 csock_OBJECTS = \
 "CMakeFiles/csock.dir/main.cpp.obj" \
@@ -167,7 +209,10 @@ csock_OBJECTS = \
 "CMakeFiles/csock.dir/controller/connection/ControlConnection.cpp.obj" \
 "CMakeFiles/csock.dir/controller/connection/TransferConnection.cpp.obj" \
 "CMakeFiles/csock.dir/controller/definition/Handshake.cpp.obj" \
-"CMakeFiles/csock.dir/controller/definition/Slice.cpp.obj"
+"CMakeFiles/csock.dir/controller/definition/Slice.cpp.obj" \
+"CMakeFiles/csock.dir/controller/definition/Request.cpp.obj" \
+"CMakeFiles/csock.dir/controller/definition/Response.cpp.obj" \
+"CMakeFiles/csock.dir/controller/task/BaseTask.cpp.obj"
 
 # External object files for target csock
 csock_EXTERNAL_OBJECTS =
@@ -178,11 +223,14 @@ csock.exe: CMakeFiles/csock.dir/controller/connection/ControlConnection.cpp.obj
 csock.exe: CMakeFiles/csock.dir/controller/connection/TransferConnection.cpp.obj
 csock.exe: CMakeFiles/csock.dir/controller/definition/Handshake.cpp.obj
 csock.exe: CMakeFiles/csock.dir/controller/definition/Slice.cpp.obj
+csock.exe: CMakeFiles/csock.dir/controller/definition/Request.cpp.obj
+csock.exe: CMakeFiles/csock.dir/controller/definition/Response.cpp.obj
+csock.exe: CMakeFiles/csock.dir/controller/task/BaseTask.cpp.obj
 csock.exe: CMakeFiles/csock.dir/build.make
 csock.exe: CMakeFiles/csock.dir/linklibs.rsp
 csock.exe: CMakeFiles/csock.dir/objects1.rsp
 csock.exe: CMakeFiles/csock.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\16977\Desktop\src\csock\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable csock.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\16977\Desktop\src\csock\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable csock.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\csock.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

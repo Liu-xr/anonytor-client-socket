@@ -7,14 +7,15 @@
 
 #include "BaseConnection.h"
 #include <string>
-
+#include "../definition/Response.h"
 namespace Connection {
     class ControlConnection : public BaseConnection {
     private:
-        string HostID;
-        string Key;
+
     public:
         ControlConnection(const char* hostAddr, int port, const string& hostID, string key, bool type);
+        Request recvRequest();
+        bool sendResponse(Response);
     };
 }
 

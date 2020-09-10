@@ -47,17 +47,37 @@ CMakeFiles/csock.dir/controller/connection/BaseConnection.cpp.obj
  C:/Users/16977/Desktop/src/csock/controller/connection/BaseConnection.h
  C:/Users/16977/Desktop/src/csock/controller/definition/Handshake.h
  C:/Users/16977/Desktop/src/csock/controller/definition/Notice.h
+ C:/Users/16977/Desktop/src/csock/controller/definition/Request.h
+ C:/Users/16977/Desktop/src/csock/controller/definition/Slice.h
 CMakeFiles/csock.dir/controller/connection/ControlConnection.cpp.obj
+ ../include/nlohmann/json.hpp
  C:/Users/16977/Desktop/src/csock/controller/connection/BaseConnection.h
  C:/Users/16977/Desktop/src/csock/controller/connection/ControlConnection.cpp
  C:/Users/16977/Desktop/src/csock/controller/connection/ControlConnection.h
+ C:/Users/16977/Desktop/src/csock/controller/definition/Request.h
+ C:/Users/16977/Desktop/src/csock/controller/definition/Response.h
+ C:/Users/16977/Desktop/src/csock/controller/definition/Slice.h
 CMakeFiles/csock.dir/controller/connection/TransferConnection.cpp.obj
  C:/Users/16977/Desktop/src/csock/controller/connection/BaseConnection.h
  C:/Users/16977/Desktop/src/csock/controller/connection/TransferConnection.cpp
  C:/Users/16977/Desktop/src/csock/controller/connection/TransferConnection.h
+ C:/Users/16977/Desktop/src/csock/controller/definition/Request.h
+ C:/Users/16977/Desktop/src/csock/controller/definition/Slice.h
 CMakeFiles/csock.dir/controller/definition/Handshake.cpp.obj
  C:/Users/16977/Desktop/src/csock/controller/definition/Handshake.cpp
  C:/Users/16977/Desktop/src/csock/controller/definition/Handshake.h
+CMakeFiles/csock.dir/controller/definition/Request.cpp.obj
+ C:/Users/16977/Desktop/src/csock/controller/definition/Request.cpp
+ C:/Users/16977/Desktop/src/csock/controller/definition/Request.h
+CMakeFiles/csock.dir/controller/definition/Response.cpp.obj
+ C:/Users/16977/Desktop/src/csock/controller/definition/Response.cpp
+ C:/Users/16977/Desktop/src/csock/controller/definition/Response.h
+CMakeFiles/csock.dir/controller/definition/Slice.cpp.obj
+ C:/Users/16977/Desktop/src/csock/controller/definition/Slice.cpp
+ C:/Users/16977/Desktop/src/csock/controller/definition/Slice.h
+CMakeFiles/csock.dir/controller/task/BaseTask.cpp.obj
+ C:/Users/16977/Desktop/src/csock/controller/task/BaseTask.cpp
+ C:/Users/16977/Desktop/src/csock/controller/task/BaseTask.h
 CMakeFiles/csock.dir/main.cpp.obj
  ../include/spdlog/cfg/log_levels.h
  ../include/spdlog/common-inl.h
@@ -104,4 +124,7 @@ CMakeFiles/csock.dir/main.cpp.obj
  C:/Users/16977/Desktop/src/csock/controller/connection/ControlConnection.h
  C:/Users/16977/Desktop/src/csock/controller/definition/Handshake.h
  C:/Users/16977/Desktop/src/csock/controller/definition/Notice.h
+ C:/Users/16977/Desktop/src/csock/controller/definition/Request.h
+ C:/Users/16977/Desktop/src/csock/controller/definition/Response.h
+ C:/Users/16977/Desktop/src/csock/controller/definition/Slice.h
  C:/Users/16977/Desktop/src/csock/main.cpp

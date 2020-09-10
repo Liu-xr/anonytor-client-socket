@@ -17,6 +17,6 @@ namespace Notice{
     const char SocketInitError[]="can't initialize socket";
     const char ServerConnectError[]= "can't connect to server";
     const char ClientSocketVersionError[]="client socket's version is incorrect";
-
+    const char SocketRecvError[]="can't recv correct Data from socket";
 
 }

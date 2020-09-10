@@ -8,14 +8,19 @@
 
 class Slice {
 private:
-    char *buffer;
+
     int len;
     int cap;
 public:
+    char *buffer;
+    Slice(char*data,int length,int expectCap);
+    ~Slice();
     void append(Slice);
-    int getLen();
-    int getCap();
-
+    int getLen() const;
+    int getCap() const;
+    char get(int index);
+    void set(int index,char c);
+    Slice get(int i,int j);
 };
 
 

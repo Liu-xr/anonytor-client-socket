@@ -250,6 +250,60 @@ controller/definition/Handshake.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/definition/Handshake.cpp.s
 .PHONY : controller/definition/Handshake.cpp.s
 
+controller/definition/Request.obj: controller/definition/Request.cpp.obj
+
+.PHONY : controller/definition/Request.obj
+
+# target to build an object file
+controller/definition/Request.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/definition/Request.cpp.obj
+.PHONY : controller/definition/Request.cpp.obj
+
+controller/definition/Request.i: controller/definition/Request.cpp.i
+
+.PHONY : controller/definition/Request.i
+
+# target to preprocess a source file
+controller/definition/Request.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/definition/Request.cpp.i
+.PHONY : controller/definition/Request.cpp.i
+
+controller/definition/Request.s: controller/definition/Request.cpp.s
+
+.PHONY : controller/definition/Request.s
+
+# target to generate assembly for a file
+controller/definition/Request.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/definition/Request.cpp.s
+.PHONY : controller/definition/Request.cpp.s
+
+controller/definition/Response.obj: controller/definition/Response.cpp.obj
+
+.PHONY : controller/definition/Response.obj
+
+# target to build an object file
+controller/definition/Response.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/definition/Response.cpp.obj
+.PHONY : controller/definition/Response.cpp.obj
+
+controller/definition/Response.i: controller/definition/Response.cpp.i
+
+.PHONY : controller/definition/Response.i
+
+# target to preprocess a source file
+controller/definition/Response.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/definition/Response.cpp.i
+.PHONY : controller/definition/Response.cpp.i
+
+controller/definition/Response.s: controller/definition/Response.cpp.s
+
+.PHONY : controller/definition/Response.s
+
+# target to generate assembly for a file
+controller/definition/Response.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/definition/Response.cpp.s
+.PHONY : controller/definition/Response.cpp.s
+
 controller/definition/Slice.obj: controller/definition/Slice.cpp.obj
 
 .PHONY : controller/definition/Slice.obj
@@ -276,6 +330,33 @@ controller/definition/Slice.s: controller/definition/Slice.cpp.s
 controller/definition/Slice.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/definition/Slice.cpp.s
 .PHONY : controller/definition/Slice.cpp.s
+
+controller/task/BaseTask.obj: controller/task/BaseTask.cpp.obj
+
+.PHONY : controller/task/BaseTask.obj
+
+# target to build an object file
+controller/task/BaseTask.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/task/BaseTask.cpp.obj
+.PHONY : controller/task/BaseTask.cpp.obj
+
+controller/task/BaseTask.i: controller/task/BaseTask.cpp.i
+
+.PHONY : controller/task/BaseTask.i
+
+# target to preprocess a source file
+controller/task/BaseTask.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/task/BaseTask.cpp.i
+.PHONY : controller/task/BaseTask.cpp.i
+
+controller/task/BaseTask.s: controller/task/BaseTask.cpp.s
+
+.PHONY : controller/task/BaseTask.s
+
+# target to generate assembly for a file
+controller/task/BaseTask.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\csock.dir\build.make CMakeFiles/csock.dir/controller/task/BaseTask.cpp.s
+.PHONY : controller/task/BaseTask.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -325,9 +406,18 @@ help:
 	@echo ... controller/definition/Handshake.obj
 	@echo ... controller/definition/Handshake.i
 	@echo ... controller/definition/Handshake.s
+	@echo ... controller/definition/Request.obj
+	@echo ... controller/definition/Request.i
+	@echo ... controller/definition/Request.s
+	@echo ... controller/definition/Response.obj
+	@echo ... controller/definition/Response.i
+	@echo ... controller/definition/Response.s
 	@echo ... controller/definition/Slice.obj
 	@echo ... controller/definition/Slice.i
 	@echo ... controller/definition/Slice.s
+	@echo ... controller/task/BaseTask.obj
+	@echo ... controller/task/BaseTask.i
+	@echo ... controller/task/BaseTask.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

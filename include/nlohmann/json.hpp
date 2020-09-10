@@ -6803,14 +6803,14 @@ class lexer : public lexer_base<BasicJsonType>
     This function scans a string according to Sect. 6 of RFC 7159.
 
     The function is realized with a deterministic finite state machine derived
-    from the grammar described in RFC 7159. Starting in state "init", the
+    from the grammar described in RFC 7159. Starting in state "initSocket", the
     input is read and used to determined the next state. Only state "done"
     accepts the number. State "error" is a trap state to model errors. In the
     table below, "anything" means any character but the ones listed before.
 
     state    | 0        | 1-9      | e E      | +       | -       | .        | anything
     ---------|----------|----------|----------|---------|---------|----------|-----------
-    init     | zero     | any1     | [error]  | [error] | minus   | [error]  | [error]
+    initSocket     | zero     | any1     | [error]  | [error] | minus   | [error]  | [error]
     minus    | zero     | any1     | [error]  | [error] | [error] | [error]  | [error]
     zero     | done     | done     | exponent | done    | done    | decimal1 | done
     any1     | any1     | any1     | exponent | done    | done    | decimal1 | done
@@ -6846,7 +6846,7 @@ class lexer : public lexer_base<BasicJsonType>
         // changed if minus sign, decimal point or exponent is read
         token_type number_type = token_type::value_unsigned;
 
-        // state (init): we just found out we need to scan a number
+        // state (initSocket): we just found out we need to scan a number
         switch (current)
         {
             case '-':
@@ -8151,7 +8151,7 @@ class binary_reader
                         - static_cast<number_integer_t>(number));
             }
 
-            // Binary data (0x00..0x17 bytes follow)
+            // Binary Data (0x00..0x17 bytes follow)
             case 0x40:
             case 0x41:
             case 0x42:
@@ -8176,11 +8176,11 @@ class binary_reader
             case 0x55:
             case 0x56:
             case 0x57:
-            case 0x58: // Binary data (one-byte uint8_t for n follows)
-            case 0x59: // Binary data (two-byte uint16_t for n follow)
-            case 0x5A: // Binary data (four-byte uint32_t for n follow)
-            case 0x5B: // Binary data (eight-byte uint64_t for n follow)
-            case 0x5F: // Binary data (indefinite length)
+            case 0x58: // Binary Data (one-byte uint8_t for n follows)
+            case 0x59: // Binary Data (two-byte uint16_t for n follow)
+            case 0x5A: // Binary Data (four-byte uint32_t for n follow)
+            case 0x5B: // Binary Data (eight-byte uint64_t for n follow)
+            case 0x5F: // Binary Data (indefinite length)
             {
                 binary_t b;
                 return get_cbor_binary(b) && sax->binary(b);
@@ -8221,7 +8221,7 @@ class binary_reader
                 return get_cbor_string(s) && sax->string(s);
             }
 
-            // array (0x00..0x17 data items follow)
+            // array (0x00..0x17 Data items follow)
             case 0x80:
             case 0x81:
             case 0x82:
@@ -8275,7 +8275,7 @@ class binary_reader
             case 0x9F: // array (indefinite length)
                 return get_cbor_array(std::size_t(-1), tag_handler);
 
-            // map (0x00..0x17 pairs of data items follow)
+            // map (0x00..0x17 pairs of Data items follow)
             case 0xA0:
             case 0xA1:
             case 0xA2:
@@ -8588,7 +8588,7 @@ class binary_reader
 
         switch (current)
         {
-            // Binary data (0x00..0x17 bytes follow)
+            // Binary Data (0x00..0x17 bytes follow)
             case 0x40:
             case 0x41:
             case 0x42:
@@ -8617,35 +8617,35 @@ class binary_reader
                 return get_binary(input_format_t::cbor, static_cast<unsigned int>(current) & 0x1Fu, result);
             }
 
-            case 0x58: // Binary data (one-byte uint8_t for n follows)
+            case 0x58: // Binary Data (one-byte uint8_t for n follows)
             {
                 std::uint8_t len{};
                 return get_number(input_format_t::cbor, len) &&
                        get_binary(input_format_t::cbor, len, result);
             }
 
-            case 0x59: // Binary data (two-byte uint16_t for n follow)
+            case 0x59: // Binary Data (two-byte uint16_t for n follow)
             {
                 std::uint16_t len{};
                 return get_number(input_format_t::cbor, len) &&
                        get_binary(input_format_t::cbor, len, result);
             }
 
-            case 0x5A: // Binary data (four-byte uint32_t for n follow)
+            case 0x5A: // Binary Data (four-byte uint32_t for n follow)
             {
                 std::uint32_t len{};
                 return get_number(input_format_t::cbor, len) &&
                        get_binary(input_format_t::cbor, len, result);
             }
 
-            case 0x5B: // Binary data (eight-byte uint64_t for n follow)
+            case 0x5B: // Binary Data (eight-byte uint64_t for n follow)
             {
                 std::uint64_t len{};
                 return get_number(input_format_t::cbor, len) &&
                        get_binary(input_format_t::cbor, len, result);
             }
 
-            case 0x5F: // Binary data (indefinite length)
+            case 0x5F: // Binary Data (indefinite length)
             {
                 while (get() != 0xFF)
                 {
@@ -14224,7 +14224,7 @@ class binary_writer
     @brief write a number to output input
     @param[in] n number of type @a NumberType
     @tparam NumberType the type of the number
-    @tparam OutputIsLittleEndian Set to true if output data is
+    @tparam OutputIsLittleEndian Set to true if output Data is
                                  required to be little endian
 
     @note This function needs to respect the system's endianess, because bytes
@@ -16586,7 +16586,7 @@ default; will be used in @ref number_integer_t)
 `uint64_t` by default; will be used in @ref number_unsigned_t)
 @tparam NumberFloatType type for JSON floating-point numbers (`double` by
 default; will be used in @ref number_float_t)
-@tparam BinaryType type for packed binary data for compatibility with binary
+@tparam BinaryType type for packed binary Data for compatibility with binary
 serialization formats (`std::vector<std::uint8_t>` by default; will be used in
 @ref binary_t)
 @tparam AllocatorType type of the allocator to use (`std::allocator` by
@@ -16613,7 +16613,7 @@ and `from_json()` (@ref adl_serializer by default)
  - [StandardLayoutType](https://en.cppreference.com/w/cpp/named_req/StandardLayoutType):
    JSON values have
    [standard layout](https://en.cppreference.com/w/cpp/language/data_members#Standard_layout):
-   All non-static data members are private and standard layout types, the
+   All non-static Data members are private and standard layout types, the
    class has no virtual functions or (virtual) base classes.
 - Library-wide
  - [EqualityComparable](https://en.cppreference.com/w/cpp/named_req/EqualityComparable):
@@ -16885,11 +16885,11 @@ class basic_json
 
 
     ///////////////////////////
-    // JSON value data types //
+    // JSON value Data types //
     ///////////////////////////
 
-    /// @name JSON value data types
-    /// The data types to store a JSON value. These types are derived from
+    /// @name JSON value Data types
+    /// The Data types to store a JSON value. These types are derived from
     /// the template arguments passed to class @ref basic_json.
     /// @{
 
@@ -17329,15 +17329,15 @@ class basic_json
     /*!
     @brief a type for a packed binary type
 
-    This type is a type designed to carry binary data that appears in various
+    This type is a type designed to carry binary Data that appears in various
     serialized formats, such as CBOR's Major Type 2, MessagePack's bin, and
     BSON's generic binary subtype. This type is NOT a part of standard JSON and
     exists solely for compatibility with these binary types. As such, it is
     simply defined as an ordered sequence of zero or more byte values.
 
-    Additionally, as an implementation detail, the subtype of the binary data is
+    Additionally, as an implementation detail, the subtype of the binary Data is
     carried around as a `std::uint8_t`, which is compatible with both of the
-    binary data formats that use binary subtyping, (though the specific
+    binary Data formats that use binary subtyping, (though the specific
     numbering is incompatible with each other, and it is up to the user to
     translate between them).
 
@@ -18014,8 +18014,8 @@ class basic_json
     @brief create a container (array or object) from an initializer list
 
     Creates a JSON value of type array or object from the passed initializer
-    list @a init. In case @a type_deduction is `true` (default), the type of
-    the JSON value to be created is deducted from the initializer list @a init
+    list @a initSocket. In case @a type_deduction is `true` (default), the type of
+    the JSON value to be created is deducted from the initializer list @a initSocket
     according to the following rules:
 
     1. If the list is empty, an empty JSON object value `{}` is created.
@@ -18052,7 +18052,7 @@ class basic_json
     @param[in] init  initializer list with JSON values
 
     @param[in] type_deduction internal parameter; when set to `true`, the type
-    of the JSON value is deducted from the initializer list @a init; when set
+    of the JSON value is deducted from the initializer list @a initSocket; when set
     to `false`, the type provided via @a manual_type is forced. This mode is
     used by the functions @ref array(initializer_list_t) and
     @ref object(initializer_list_t).
@@ -18063,13 +18063,13 @@ class basic_json
     is set to `true`, this parameter has no effect
 
     @throw type_error.301 if @a type_deduction is `false`, @a manual_type is
-    `value_t::object`, but @a init contains an element which is not a pair
+    `value_t::object`, but @a initSocket contains an element which is not a pair
     whose first element is a string. In this case, the constructor could not
     create an object. If @a type_deduction would have be `true`, an array
     would have been created. See @ref object(initializer_list_t)
     for an example.
 
-    @complexity Linear in the size of the initializer list @a init.
+    @complexity Linear in the size of the initializer list @a initSocket.
 
     @exceptionsafety Strong guarantee: if an exception is thrown, there are no
     changes to any JSON value.
@@ -18156,7 +18156,7 @@ class basic_json
 
     @return JSON binary array value
 
-    @complexity Linear in the size of @a init.
+    @complexity Linear in the size of @a initSocket.
 
     @exceptionsafety Strong guarantee: if an exception is thrown, there are no
     changes to any JSON value.
@@ -18193,7 +18193,7 @@ class basic_json
 
     @return JSON binary array value
 
-    @complexity Linear in the size of @a init.
+    @complexity Linear in the size of @a initSocket.
 
     @exceptionsafety Strong guarantee: if an exception is thrown, there are no
     changes to any JSON value.
@@ -18251,7 +18251,7 @@ class basic_json
 
     @return JSON array value
 
-    @complexity Linear in the size of @a init.
+    @complexity Linear in the size of @a initSocket.
 
     @exceptionsafety Strong guarantee: if an exception is thrown, there are no
     changes to any JSON value.
@@ -18282,20 +18282,20 @@ class basic_json
     @note This function is only added for symmetry reasons. In contrast to the
     related function @ref array(initializer_list_t), there are
     no cases which can only be expressed by this function. That is, any
-    initializer list @a init can also be passed to the initializer list
+    initializer list @a initSocket can also be passed to the initializer list
     constructor @ref basic_json(initializer_list_t, bool, value_t).
 
     @param[in] init  initializer list to create an object from (optional)
 
     @return JSON object value
 
-    @throw type_error.301 if @a init is not a list of pairs whose first
+    @throw type_error.301 if @a initSocket is not a list of pairs whose first
     elements are strings. In this case, no object can be created. When such a
     value is passed to @ref basic_json(initializer_list_t, bool, value_t),
-    an array would have been created from the passed initializer list @a init.
+    an array would have been created from the passed initializer list @a initSocket.
     See example below.
 
-    @complexity Linear in the size of @a init.
+    @complexity Linear in the size of @a initSocket.
 
     @exceptionsafety Strong guarantee: if an exception is thrown, there are no
     changes to any JSON value.
@@ -19542,7 +19542,7 @@ class basic_json
     Implicit pointer access to the internally stored JSON value. No copies are
     made.
 
-    @warning Writing data to the pointee of the result yields an undefined
+    @warning Writing Data to the pointee of the result yields an undefined
     state.
 
     @tparam PointerType pointer type; must be a pointer to @ref array_t, @ref
@@ -19636,7 +19636,7 @@ class basic_json
     Implicit reference access to the internally stored JSON value. No copies
     are made.
 
-    @warning Writing data to the referee of the result yields an undefined
+    @warning Writing Data to the referee of the result yields an undefined
     state.
 
     @tparam ReferenceType reference type; must be a reference to @ref array_t,
@@ -21831,16 +21831,16 @@ class basic_json
     This function allows to use `push_back` with an initializer list. In case
 
     1. the current value is an object,
-    2. the initializer list @a init contains only two elements, and
-    3. the first element of @a init is a string,
+    2. the initializer list @a initSocket contains only two elements, and
+    3. the first element of @a initSocket is a string,
 
-    @a init is converted into an object element and added using
-    @ref push_back(const typename object_t::value_type&). Otherwise, @a init
+    @a initSocket is converted into an object element and added using
+    @ref push_back(const typename object_t::value_type&). Otherwise, @a initSocket
     is converted to a JSON value and added using @ref push_back(basic_json&&).
 
     @param[in] init  an initializer list
 
-    @complexity Linear in the size of the initializer list @a init.
+    @complexity Linear in the size of the initializer list @a initSocket.
 
     @note This function is required to resolve an ambiguous overload error,
           because pairs like `{"key", "value"}` can be both interpreted as
@@ -23721,7 +23721,7 @@ class basic_json
           the benefit of this parameter is that the receiving side is
           immediately informed on the number of elements of the container.
 
-    @note If the JSON data contains the binary type, the value stored is a list
+    @note If the JSON Data contains the binary type, the value stored is a list
           of integers, as suggested by the UBJSON documentation.  In particular,
           this means that serialization and the deserialization of a JSON
           containing binary values into UBJSON and back will result in a

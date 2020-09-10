@@ -7,42 +7,41 @@
 
 #include <winsock.h>
 #include <string>
-
+#include <vector>
+#include "../definition/Slice.h"
+#include "../definition/Request.h"
 #define Control 0
 #define Transfer 1
 const int DefaultBufferLength = 256;
 using namespace std;
+using namespace Protocol;
 namespace Connection {
     class BaseConnection {
     protected:
         SOCKADDR_IN ServerAddr;
         SOCKET Socket;
-        char *Buffer;
-        int BufferLength = 0;
-        int BufferCapacity = DefaultBufferLength;
+        Slice Buffer=Slice("",0,DefaultBufferLength);
         string HostID;
         string Key;
         int Type;
 
         //methods
-        int basicSend(const char [], int dataLen);
+        int basicSend(Slice) const;
 
-        int basicRecv();
+        Slice basicRecv();
 
         int readAndAppendToBuffer();
-
+        void sendHandshake();
+        Request recvRequest();
+        bool recvOK();
         int OK();
-
         int Reset();
 
-        static void padData(const char *, char *dest);
-
-        static int calLenNeeded(const char *);
 
     public:
         BaseConnection(const char *hostAddr, int port, const string &hostID, string key, int type);
 
-        int Connect();
+        bool Connect();
 
 
     };

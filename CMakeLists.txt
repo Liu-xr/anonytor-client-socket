@@ -12,7 +12,11 @@ add_executable(
         controller/definition/Notice.h
         controller/connection/Connection.h config.h
         controller/definition/Handshake.h controller/definition/Handshake.cpp
-        controller/definition/Slice.cpp controller/definition/Slice.h)
+        controller/definition/Slice.cpp controller/definition/Slice.h
+        controller/definition/Request.cpp controller/definition/Request.h
+        controller/definition/Response.cpp controller/definition/Response.h
+        controller/task/BaseTask.h controller/task/BaseTask.cpp
+        cmake-build-debug/Test.h)
 include_directories(
         include
-controller)
+        controller)

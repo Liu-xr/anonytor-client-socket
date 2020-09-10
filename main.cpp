@@ -4,27 +4,35 @@
 #include "controller/definition/Notice.h"
 #include "controller/connection/ControlConnection.h"
 #include "config.h"
+
 using namespace Notice;
 using namespace Connection;
 using namespace Config;
+
 void initLogger(void);
-
-void init();
-
+void initSocket();
 int main() {
+    bool status;
     initLogger();
-    init();
-    ControlConnection cc = ControlConnection(ServerAddr,Port,HostID,HostKey,Control);
-    cc.Connect();
+    initSocket();
+    ControlConnection cc=ControlConnection(ServerAddr, Port, HostID, HostKey, Control);
+    status=cc.Connect();
+    Response r = Response("testID",Protocol::TaskReceived,"");
+  status = cc.sendResponse(r);
     return 0;
 }
+
+
+
+
+
 
 void initLogger(void) {
     spdlog::set_level(spdlog::level::debug);
     spdlog::debug(LogInitialized);
 }
 
-void init() {
+void initSocket() {
     //初始化套接字库
     WORD w_req = MAKEWORD(2, 2);//版本号
     WSADATA wsadata;
