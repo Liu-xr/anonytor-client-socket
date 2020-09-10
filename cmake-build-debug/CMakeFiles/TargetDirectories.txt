@@ -1,0 +1,3 @@
+C:/Users/16977/Desktop/src/csock/cmake-build-debug/CMakeFiles/csock.dir
+C:/Users/16977/Desktop/src/csock/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/16977/Desktop/src/csock/cmake-build-debug/CMakeFiles/rebuild_cache.dir
