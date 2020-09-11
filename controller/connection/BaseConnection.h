@@ -10,12 +10,13 @@
 #include <vector>
 #include "../definition/Slice.h"
 #include "../definition/Request.h"
-#define Control 0
-#define Transfer 1
-const int DefaultBufferLength = 256;
+
 using namespace std;
 using namespace Protocol;
 namespace Connection {
+    const int Control= 0;
+const int Transfer =1;
+    const int DefaultBufferLength = 256;
     class BaseConnection {
     protected:
         SOCKADDR_IN ServerAddr;
@@ -28,11 +29,11 @@ namespace Connection {
         //methods
         int basicSend(Slice) const;
 
-        Slice basicRecv();
+        int  basicRecv(Slice *sl);
 
         int readAndAppendToBuffer();
         void sendHandshake();
-        Request recvRequest();
+        int recvRequest(Request *);
         bool recvOK();
         int OK();
         int Reset();

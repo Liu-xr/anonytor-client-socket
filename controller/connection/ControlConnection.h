@@ -8,14 +8,15 @@
 #include "BaseConnection.h"
 #include <string>
 #include "../definition/Response.h"
+#include "../task/BaseTask.h"
 namespace Connection {
     class ControlConnection : public BaseConnection {
     private:
-
     public:
         ControlConnection(const char* hostAddr, int port, const string& hostID, string key, bool type);
-        Request recvRequest();
+        bool  recvTask(BaseTask*);
         bool sendResponse(Response);
+        void handleTask(BaseTask bt);
     };
 }
 

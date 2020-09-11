@@ -28,6 +28,53 @@ bool ControlConnection::sendResponse(Response response) {
     j["Data"] = response.Data;
     string s = j.dump();
     Slice sl = Slice((char *) s.data(), s.length(), s.length());
-    this->basicSend(sl);
+    return this->basicSend(sl)==-1;
     return this->recvOK();
 }
+bool  ControlConnection::recvTask(BaseTask*bt) {
+    Request r=Request();
+    int status=this->recvRequest(&r);
+    if (status==-1){
+        return false;
+    }
+    // TODO: return different types of tasks depend on r.CMD
+     bt->taskId=r.TaskID;
+    bt->param=bt->param;
+    return true;
+
+}
+void ControlConnection::handleTask(BaseTask bt) {
+    Response r=Response(bt.taskId,bt.TaskReceived,"");
+    // validate
+    bool status=bt.validateParam();
+    if (!status){
+        r.TaskStatus=bt.TaskErrorInExecution;
+        r.Data=bt.retrieveError();
+        this->sendResponse(r);
+    }
+    status=bt.execute();
+    if (!status){
+        r.TaskStatus=bt.TaskErrorInExecution;
+        this->sendResponse(r);
+    }
+    status=bt.checkIfTransConnNeeded();
+    if (status){
+        r.TaskStatus=bt.TaskWantRetrieveThroughTrans;
+        this->sendResponse(r);
+        // TODO: Establish trans connection and send data
+    }else{
+        // send directly
+        r.TaskStatus=bt.TaskWantRetrieveThroughCtrl;
+        Slice result=Slice("",0,0);
+        bt.getSerializedResult(&result);
+        r.Data=(char*)malloc(sizeof(char)*(result.getLen()+1));
+        memcpy(r.Data,result.buffer,result.getLen());
+        r.Data[result.getLen()]=0;
+        this->sendResponse(r);
+    }
+    r.TaskStatus=bt.TaskFinished;
+    r.Data="";
+    this->sendResponse(r);
+
+}
+

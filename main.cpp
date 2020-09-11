@@ -17,15 +17,11 @@ int main() {
     initSocket();
     ControlConnection cc=ControlConnection(ServerAddr, Port, HostID, HostKey, Control);
     status=cc.Connect();
-    Response r = Response("testID",Protocol::TaskReceived,"");
-  status = cc.sendResponse(r);
+    BaseTask task=BaseTask();
+    cc.recvTask(&task);
+    cc.handleTask(task);
     return 0;
 }
-
-
-
-
-
 
 void initLogger(void) {
     spdlog::set_level(spdlog::level::debug);

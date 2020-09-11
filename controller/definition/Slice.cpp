@@ -44,16 +44,17 @@ void Slice::set(int index, char c) {
     this->buffer[index] = c;
 }
 
-Slice Slice::get(int i, int j) {
+void Slice::get(int i, int j,Slice *targetSlice) {
+    targetSlice->len=j-i;
     if (j < i) {
         j = i;
     }
-    char data[j - i ];
-    for (int c = 0; c < j - i ; c++) {
-        data[c] = this->buffer[c + i];
+    if (j-i>targetSlice->cap){
+        targetSlice->cap=j-i;
+        targetSlice->buffer=(char*)malloc(sizeof(char)*targetSlice->cap);
     }
-    Slice ns = Slice(data, j - i , this->getCap());
-    return ns;
+    memcpy(targetSlice->buffer,this->buffer+i,j-i);
+
 }
 Slice::~Slice() {
     free(this->buffer);

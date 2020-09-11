@@ -16,7 +16,9 @@ add_executable(
         controller/definition/Request.cpp controller/definition/Request.h
         controller/definition/Response.cpp controller/definition/Response.h
         controller/task/BaseTask.h controller/task/BaseTask.cpp
-        cmake-build-debug/Test.h)
+
+        include/cppbase64/base64.cpp include/cppbase64/base64.h
+        )
 include_directories(
         include
         controller)

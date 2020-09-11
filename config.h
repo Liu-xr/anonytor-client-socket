@@ -9,7 +9,7 @@
 
 using namespace std;
 namespace Config {
-    const char ServerAddr[] = "127.0.0.1";
+    const char ServerAddr[] = "10.122.255.161";
     const int Port = 8888;
     const string HostID = "testHostID";
     const string HostKey = "testKey";

@@ -22,6 +22,8 @@ BaseConnection::BaseConnection(const char *addr, int port, const string &hostID,
     this->ServerAddr.sin_addr.S_un.S_addr = inet_addr(addr);
     this->ServerAddr.sin_port = htons(port);
     this->Socket = socket(AF_INET, SOCK_STREAM, 0);
+    DWORD timeout = 3 * 1000;
+    setsockopt(this->Socket, SOL_SOCKET, SO_RCVTIMEO, (const char*)&timeout, sizeof timeout);
     this->Key = move(key);
     this->Type = type;
     this->HostID = hostID;
@@ -70,26 +72,37 @@ void BaseConnection::sendHandshake() {
     basicSend(sl);
 }
 
-Request BaseConnection::recvRequest() {
-    Slice s = this->basicRecv();
+int  BaseConnection::recvRequest(Request* r) {
+    Slice s = Slice("",0,0);
+    int status=this->basicRecv(&s);
+    if (status==-1){
+        return -1;
+    }
     s.set(s.getLen(), '\0');
     auto data = json::parse(s.buffer);
-    Request r = Request();
-    r.TaskID = data["task_id"].get<string>();
-    r.Cmd = data["cmd"].get<int>();
-    r.Param = data["param"].get<string>();
-    return r;
+    r->TaskID = data["task_id"].get<string>();
+    r->Cmd = data["cmd"].get<int>();
+    r->Param = data["param"].get<string>();
+    return 0;
 
 }
 
 bool BaseConnection::recvOK() {
-    Request r = this->recvRequest();
+    Request r = Request();
+    int status=this->recvRequest(&r);
+    if (status==-1){
+        return false;
+    }
     return r.Cmd == Protocol::OK;
 
 }
 
-Slice BaseConnection::basicRecv() {
+int BaseConnection::basicRecv(Slice *ret) {
+
     int readLength = this->readAndAppendToBuffer();
+    if (readLength==-1){
+        return -1;
+    }
     // get index of \n
     int index = 0;
     while (this->Buffer.get(index) != '\n' && index < readLength) {
@@ -107,19 +120,22 @@ Slice BaseConnection::basicRecv() {
     while (readLength < wholeDataLen) {
         readLength += readAndAppendToBuffer();
     }
-    Slice ret = this->Buffer.get(index + 1, wholeDataLen);
+    this->Buffer.get(index + 1, wholeDataLen,ret);
     int remainLen = this->Buffer.getLen() - wholeDataLen;
     if (remainLen == 0) {
         this->Buffer = Slice((char *) "", 0, DefaultBufferLength);
     } else {
-        this->Buffer = this->Buffer.get(wholeDataLen, this->Buffer.getLen());
+        this->Buffer.get(wholeDataLen,this->Buffer.getLen(),&this->Buffer);
     }
-    return ret;
+    return readLength;
 }
 
 int BaseConnection::readAndAppendToBuffer() {
     char tmpBuffer[DefaultBufferLength];
     int newlyReadLen = recv(this->Socket, tmpBuffer, DefaultBufferLength, 0);
+    if (newlyReadLen==-1){
+        return -1;
+    }
     Slice sl = Slice(tmpBuffer, newlyReadLen, DefaultBufferLength);
     this->Buffer.append(sl);
     return newlyReadLen;

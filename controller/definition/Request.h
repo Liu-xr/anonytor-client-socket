@@ -18,6 +18,11 @@ namespace Protocol{
 
     class Request {
     public:
+        Request(){
+            this->Param="";
+            this->Cmd=0;
+            this->Param="";
+        }
         string TaskID;
         int Cmd;
         string Param;

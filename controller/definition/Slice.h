@@ -20,7 +20,7 @@ public:
     int getCap() const;
     char get(int index);
     void set(int index,char c);
-    Slice get(int i,int j);
+    void get(int i,int j,Slice*s);
 };
 
 

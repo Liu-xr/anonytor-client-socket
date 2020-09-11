@@ -4,10 +4,11 @@
 
 #include "BaseTask.h"
 #include <windows.h>
-
+#include <cppbase64/base64.h>
+#include "../definition/Slice.h"
 using namespace std;
 
-string BaseTask::retrieveError() {
+char *BaseTask::retrieveError() {
     return this->errorDescription;
 }
 
@@ -17,15 +18,21 @@ bool BaseTask::validateParam() {
 
 bool BaseTask::execute() {
     Sleep(1000);
+    char *r = "taskResult";
+    this->result = r;
+    this->resultLen = strlen(r);
     return true;
 }
 
 bool BaseTask::checkIfTransConnNeeded() {
-    return true;
+    return false;
 }
 
-string BaseTask::getSerializedResult() {
-    return this->result;
+void BaseTask::getSerializedResult(Slice*ret) {
+    basic_string<char> b64 = base64_encode(reinterpret_cast<const unsigned char *>(this->result), this->resultLen,
+                                           false);
+    char *data=(char*)b64.c_str();
+    ret->append(Slice(data,strlen(data),strlen(data)));
 }
 
 bool BaseTask::sendResultThroughConn(SOCKET socket) {
