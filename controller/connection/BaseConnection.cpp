@@ -61,7 +61,7 @@ int BaseConnection::basicSend(Slice s) const {
 }
 
 void BaseConnection::sendHandshake() {
-    Handshake hs = Handshake(this->HostID, this->Key, this->Type, "");
+    Handshake hs = Handshake(this->HostID, this->Key, this->Type, this->TaskID);
     json j;
     j["host_id"] = hs.HostID;
     j["key"] = hs.Key;

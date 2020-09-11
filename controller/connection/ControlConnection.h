@@ -13,7 +13,7 @@ namespace Connection {
     class ControlConnection : public BaseConnection {
     private:
     public:
-        ControlConnection(const char* hostAddr, int port, const string& hostID, string key, bool type);
+        ControlConnection(const char* hostAddr, int port, string hostID, string key, bool type);
         bool  recvTask(BaseTask*);
         bool sendResponse(Response);
         void handleTask(BaseTask bt);

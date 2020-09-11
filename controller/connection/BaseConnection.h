@@ -25,6 +25,7 @@ const int Transfer =1;
         string HostID;
         string Key;
         int Type;
+        string TaskID;
 
         //methods
         int basicSend(Slice) const;

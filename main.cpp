@@ -3,6 +3,7 @@
 #include "spdlog/spdlog.h"
 #include "controller/definition/Notice.h"
 #include "controller/connection/ControlConnection.h"
+#include "controller/connection/TransferConnection.h"
 #include "config.h"
 
 using namespace Notice;
@@ -15,11 +16,13 @@ int main() {
     bool status;
     initLogger();
     initSocket();
-    ControlConnection cc=ControlConnection(ServerAddr, Port, HostID, HostKey, Control);
-    status=cc.Connect();
-    BaseTask task=BaseTask();
-    cc.recvTask(&task);
-    cc.handleTask(task);
+    TransferConnection tc=TransferConnection(ServerAddr, Port, HostID, HostKey, Transfer,"testTaskID");
+    status=tc.Connect();
+//    ControlConnection cc=ControlConnection(ServerAddr, Port, HostID, HostKey, Control);
+//    status=cc.Connect();
+//    BaseTask task=BaseTask();
+//    cc.recvTask(&task);
+//    cc.handleTask(task);
     return 0;
 }
 

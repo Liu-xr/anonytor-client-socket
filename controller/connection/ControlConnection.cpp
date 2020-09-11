@@ -12,10 +12,8 @@ using namespace Connection;
 using namespace std;
 
 ControlConnection::ControlConnection(
-        const char *hostAddr, int port, const string &hostID, string key, bool type)
-        : BaseConnection(
-        hostAddr, port, hostID, move(key), type
-) {
+        const char *hostAddr, int port,string hostID, string key, bool type)
+        : BaseConnection(hostAddr, port, hostID, move(key), type) {
 
 }
 
